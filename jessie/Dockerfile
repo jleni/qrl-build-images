@@ -16,6 +16,7 @@ RUN apt-get -y install python3 python3-dev python3-pip libhwloc-dev libboost-dev
 
 RUN pip3 install --upgrade pip virtualenv setuptools PyScaffold==2.5.8 typing | cat
 RUN pip3 install -U -r https://raw.githubusercontent.com/theQRL/QRL/master/requirements.txt
+RUN pip3 install -U -r https://raw.githubusercontent.com/theQRL/QRL/master/test-requirements.txt
 
 RUN echo "ALL ALL=NOPASSWD: ALL" >> /etc/sudoers
 
