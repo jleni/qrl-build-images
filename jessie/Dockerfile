@@ -1,14 +1,20 @@
 #Download base ubuntu image
-FROM ubuntu:16.04
+FROM debian:jessie
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN echo "deb http://ftp.debian.org/debian jessie-backports main" | tee -a /etc/apt/sources.list
+
 RUN apt-get update && \
-    apt-get -y install software-properties-common python-software-properties && \
+    apt-get -t jessie-backports -y install cmake swig3.0 && \
+    apt-get -y install software-properties-common && \
     apt-get -y install ca-certificates curl && \
     apt-get -y install build-essential pkg-config git sudo wget
 
 # Prepare python
-RUN apt-get -y install swig3.0 python3 python3-dev python3-pip libhwloc-dev libboost-dev
+RUN apt-get -y install python3 python3-dev python3-pip libhwloc-dev libboost-dev
 
-RUN pip3 install --upgrade pip cmake virtualenv setuptools PyScaffold==2.5.8
+RUN pip3 install --upgrade pip virtualenv setuptools PyScaffold==2.5.8 typing | cat
 RUN pip3 install -U -r https://raw.githubusercontent.com/theQRL/QRL/master/requirements.txt
 
 RUN echo "ALL ALL=NOPASSWD: ALL" >> /etc/sudoers
