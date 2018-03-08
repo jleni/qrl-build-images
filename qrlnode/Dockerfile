@@ -15,6 +15,9 @@ RUN pip3 install --upgrade pip cmake virtualenv setuptools PyScaffold==2.5.8 | c
 RUN pip3 install -U -r https://raw.githubusercontent.com/theQRL/QRL/master/requirements.txt
 
 # ENV - Define environment variables
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
 # TODO: define any required environment variables
 
 # COPY - Copy configuration/scripts
