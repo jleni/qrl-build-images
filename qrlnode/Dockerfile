@@ -11,7 +11,7 @@ RUN echo "ALL ALL=NOPASSWD: ALL" >> /etc/sudoers
 RUN pip3 install -U pip docker
 
 # Save time by preinstalling
-RUN pip3 install --upgrade pip cmake virtualenv setuptools PyScaffold==2.5.8 | cat
+RUN pip3 install --upgrade pip cmake virtualenv setuptools PyScaffold
 RUN pip3 install -U -r https://raw.githubusercontent.com/theQRL/QRL/master/requirements.txt
 
 # ENV - Define environment variables
